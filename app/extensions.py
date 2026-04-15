@@ -1,13 +1,6 @@
 from app.services.database_service import (
-    users_collection,
     get_user,
-    get_single_post,
-    get_single_story,
-    get_videoposts,
-    get_marketposts,
-    get_related_posts,
-    get_active_users,
-    get_user_chats
+    get_user_chats,
 )
 from flask import make_response, request
 from app.utils.logger import debug_logger

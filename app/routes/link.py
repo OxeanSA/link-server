@@ -25,7 +25,7 @@ from app.services.database_service import (
     create_local_token
 )
 from app.utils.logger import debug_logger
-from app.exts import authenticate, require_admin
+from app.extensions import authenticate, require_admin
 
 import requests
 
