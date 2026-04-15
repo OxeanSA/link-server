@@ -24,6 +24,9 @@ pymongo
 chardet
 timeago
 
+gunicorn
+tornado
+
 # tensorflow
 # torch
 # torchvision
