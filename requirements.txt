@@ -1,0 +1,32 @@
+# Core Web Framework (Pinned for compatibility)
+Flask==2.2.5
+Werkzeug==2.2.3
+flask-restx==1.1.0
+jsonschema==3.2.0
+Jinja2==3.1.2
+
+# Auth and Security
+flask-jwt-extended
+flask-cors
+flask-login
+PyJWT
+bcrypt
+fpdf
+
+# Networking and Real-time
+flask-socketio
+requests
+
+# Data Science & AI (Heavy Libraries)
+# Note: We leave these unpinned so pip finds the best Linux match
+
+pymongo
+chardet
+timeago
+
+# tensorflow
+# torch
+# torchvision
+# onnx
+# onnxruntime
+# onnxruntime-gpu

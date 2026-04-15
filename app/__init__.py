@@ -4,11 +4,9 @@ from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from app.utils.logger import app_logger, proxy_logger, debug_logger
 from app.utils.proxy import Proxy
-from app.exts import handle_requests
+from app.extensions import handle_requests, get_ip
 from app.routes.link import device_ns, hotspot_ns, system_ns
 from app.routes.admin import admin_ns
-
-from app.exts import get_ip
 
 def create_app():
     app = Flask(__name__)
