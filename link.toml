@@ -1,0 +1,19 @@
+[Unit]
+Description=Link Server Service
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/home/username/link-server
+
+# This ensures the service uses the libraries inside your venv
+Environment="PATH=/home/username/link-server/venv/bin"
+
+# ExecStart points to the gunicorn binary inside the venv
+ExecStart=/home/username/link-server/venv/bin/gunicorn -c /home/username/link-server/gunicorn_conf.py main:app
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
