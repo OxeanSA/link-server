@@ -1,0 +1,42 @@
+# Ignore entire MiddleEnd and Frontend folder (contains built assets/dev files)
+*middleEnd and Frontend/
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python bytecode
+*__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Environment files
+.env
+
+# macOS
+.DS_Store
+
+# Pytest
+.pytest_cache/
+
+# Logs
+*.log
+
+# Node modules (if any inside frontend)
+node_modules/
+
+# Local secrets
+secrets/
+
+# End of file

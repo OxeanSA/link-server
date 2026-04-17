@@ -1,1 +1,4 @@
-2026-04-15 13:01:31,726 - proxy - INFO - Proxy logger initialized
+2026-04-17 21:23:14,013 - proxy - INFO - Proxy logger initialized
+2026-04-17 21:23:46,201 - proxy - WARNING - Unauthorized access attempt from IP: 127.0.0.1
+2026-04-17 21:24:19,612 - proxy - WARNING - Invalid HTTP method: HEAD
+2026-04-17 21:25:07,759 - proxy - WARNING - Invalid HTTP method: HEAD
