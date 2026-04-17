@@ -7,7 +7,7 @@ User=www-data
 Group=www-data
 WorkingDirectory=/home/username/link-server
 
-# This ensures the service uses the libraries inside your venv
+# This ensures the service uses the libraries inside venv
 Environment="PATH=/home/username/link-server/venv/bin"
 
 # ExecStart points to the gunicorn binary inside the venv
