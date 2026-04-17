@@ -1,16 +1,16 @@
-<h1 id="deployment-guide">Deployment Guide: Gunicorn + Tornado as a Service</h1>
+<h1 id="deployment-guide">Deployment Guide: Link Server Service</h1>
 
-<p>This guide provides instructions for setting up a Tornado application as a persistent system service using <strong>Gunicorn</strong> and a <strong>Python Virtual Environment</strong> within a home directory.</p>
+<p>This guide provides instructions for setting a persistent systserverem service.</p>
 
 <h2 id="1-project-layout">1. Project Layout</h2>
 <ul>
 <li><strong>Path:</strong> <code>/home/&lt;user&gt;/&lt;project_folder&gt;</code></li>
-<li><strong>Entry Point:</strong> <code>app.py</code> (containing the Tornado <code>app</code> object)</li>
+<li><strong>Entry Point:</strong> <code>main.py</code> (containing the app <code>app</code> object)</li>
 <li><strong>Venv Name:</strong> <code>venv</code></li>
 </ul>
 
 <h2 id="2-environment-initialization">2. Environment Initialization</h2>
-<p>From your project directory, set up the virtual environment and install dependencies:</p>
+<p>From project directory, set up the virtual environment and install dependencies:</p>
 
 <pre><code># Create the virtual environment
 python3 -m venv venv
@@ -20,7 +20,7 @@ Install necessary server packages inside the venv
 ./venv/bin/pip install gunicorn tornado</code></pre>
 
 <h2 id="3-gunicorn-configuration">3. Gunicorn Configuration</h2>
-<p>Create <code>gunicorn_conf.py</code> in your project root:</p>
+<p>Create <code>gunicorn_conf.py</code> in project root:</p>
 
 <pre><code># gunicorn_conf.py
 import multiprocessing
@@ -33,7 +33,7 @@ accesslog = "-"
 errorlog = "-"</code></pre>
 
 <h2 id="4-systemd-service-setup">4. Systemd Service Setup</h2>
-<p>Create the service file at <code>/etc/systemd/system/tornado_app.service</code>:</p>
+<p>Create the service file at <code>/etc/systemd/system/link.service</code>:</p>
 
 <pre><code>[Unit]
 Description=Gunicorn instance to serve Tornado App
@@ -44,7 +44,7 @@ User=&lt;user&gt;
 Group=&lt;user&gt;
 WorkingDirectory=/home/&lt;user&gt;/&lt;project_folder&gt;
 Environment="PATH=/home/&lt;user&gt;/&lt;project_folder&gt;/venv/bin"
-ExecStart=/home/&lt;user&gt;/&lt;project_folder&gt;/venv/bin/gunicorn -c gunicorn_conf.py app:app
+ExecStart=/home/&lt;user&gt;/&lt;project_folder&gt;/venv/bin/gunicorn -c gunicorn_conf.py main:app
 Restart=always
 RestartSec=3
 
@@ -63,15 +63,15 @@ WantedBy=multi-user.target</code></pre>
 </tr>
 <tr>
 <td>Start Service</td>
-<td><code>sudo systemctl start tornado_app</code></td>
+<td><code>sudo systemctl start link</code></td>
 </tr>
 <tr>
 <td>Check Status</td>
-<td><code>sudo systemctl status tornado_app</code></td>
+<td><code>sudo systemctl status link</code></td>
 </tr>
 <tr>
 <td>View Logs</td>
-<td><code>sudo journalctl -u tornado_app -f</code></td>
+<td><code>sudo journalctl -u link -f</code></td>
 </tr>
 </table>
 
