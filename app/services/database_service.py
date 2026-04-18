@@ -12,7 +12,6 @@ from flask_login import current_user
 from pymongo.errors import DuplicateKeyError, PyMongoError
 from pymongo.mongo_client import MongoClient
 from werkzeug.security import generate_password_hash
-import bcrypt
 import secrets
 import string
 
@@ -123,7 +122,7 @@ def create_user_account(firstname, lastname, email: str, password: str, database
     """
     cols = get_collections_by_target(database)
     try:
-        hashed = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+        hashed = "bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())"
         _iid = "".join(
             secrets.choice(string.ascii_letters + string.digits) for _ in range(36)
         )
